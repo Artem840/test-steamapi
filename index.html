@@ -189,7 +189,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            fetch("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=FE561FC69BCCD185BD198BC9C311AB60&steamids=76561198822516631")
+            fetch("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=FE561FC69BCCD185BD198BC9C311AB60&steamids=76561198822516631")
                 .then((res) => res.json())
                 .then((data) => console.log(data))
                 .catch((err) => console.error(err))
