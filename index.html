@@ -189,15 +189,15 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const loadData = async () => {
+            const fetchUserData = async () => {
                 const response = await fetch("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=FE561FC69BCCD185BD198BC9C311AB60&steamids=76561198822516631", {
-                    mode: "no-cors"
+                    credentials: "include"
                 })
-                const data = await response.json()
-                console.log(data)
+                const userData = await response.json()
+                console.log(userData)
             }
 
-            loadData()
+            fetchUserData()
         })
     </script>
 </body>
