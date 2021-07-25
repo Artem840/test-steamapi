@@ -190,11 +190,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const fetchUserData = async () => {
-                const response = await fetch("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=FE561FC69BCCD185BD198BC9C311AB60&steamids=76561198822516631", {
-                    credentials: "include"
-                })
-                const userData = await response.json()
-                console.log(userData)
+                try {
+                    const response = await fetch("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=FE561FC69BCCD185BD198BC9C311AB60&steamids=76561198822516631", {
+                        credentials: "include",
+                        mode: "no-cors"
+                    })
+
+                    if (!response.ok) {
+                        throw new Error("Что-то пошло не так")
+                    }
+
+                    const userData = await response.json()
+                    console.log(userData)
+                } catch (e) {
+                    console.error(e)
+                }
             }
 
             fetchUserData()
